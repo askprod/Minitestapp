@@ -1,0 +1,33 @@
+<% if @current_user %>
+
+<%= render "layouts/headerconnected" %>
+
+  <br>
+  <h1>Welcome <%= @current_user.first_name %> !</h1>
+  <br>
+  <h2>Here are all the members of the club:</h2>
+  <br>
+  <% @allusers.each do |n| %>
+  <p>
+  <b>User: </b><%= n.id %>
+  <br>
+  <b>Nom: </b><%= n.first_name %>
+  <b>Prenom: </b><%= n.last_name %>
+  <b>Email: </b><%= n.email %>
+  <b>Password: </b><%= n.password %>
+  <br>
+  </p>
+  
+<% end %>
+<% else %>
+
+<%= render "layouts/headernotconnected" %>
+
+<br>
+  <h1>You are not logged in.</h1>
+  <br>
+  <h2>You can create and account <a href = '/login/new'>here</a></h2>
+  <br>
+  <h2>Or login if you already have and account <a href = '/login/check'>here</a></h2>
+
+<% end %>

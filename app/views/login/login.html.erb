@@ -1,0 +1,14 @@
+<%= render "layouts/headernotconnected" %>
+
+<br>
+<h1>Please Login to continue:</h1>
+<br>
+<%= form_for '/login/login', url: {action: "check"} do |f| %>
+  <%= f.text_field :email, class: "form-control form-control-lg", placeholder: "Email" %>
+  <br>
+  <%= f.password_field :password, class: "form-control form-control-lg", placeholder: "Password" %>
+  <br>
+  </div>
+  <br>
+  <%= f.submit "Login", class: "btn btn-primary btn-lg" %>
+<% end %>
