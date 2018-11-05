@@ -13,7 +13,7 @@ class LoginController < ApplicationController
 
     def confirm
         @usernew = User.new(first_name: params['user']['first_name'], last_name: params['user']['last_name'], email: params['user']['email'], password: params['user']['password'])
-        @name_email = params['user']['email']
+        name_email = params['user']['email']
 
         if !params['user']['first_name'].present?
             redirect_to '/login/blank'
@@ -23,7 +23,7 @@ class LoginController < ApplicationController
             redirect_to '/login/blank'
         elsif !params['user']['password'].present?
             redirect_to '/login/blank'
-        elsif User.find_by_email(:@name_email).nil?
+        elsif !User.find_by_email(:"#{name_email}").nil?
             redirect_to '/login/email'
         else
             @usernew.save

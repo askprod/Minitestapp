@@ -5,6 +5,12 @@
   <br>
   <h1>Welcome <%= @current_user.first_name %> !</h1>
   <br>
+  <h3><b><u>Your account:</u></b></h3>
+  <h3><u>First Name</u>: <%= @current_user.first_name %></h3>
+  <h3><u>Last Name</u>: <%= @current_user.last_name %></h3>
+  <h3><u>Email</u>: <%= @current_user.email %></h3>
+  <h3><u>Password</u>: <%= @current_user.password %></h3>
+  <br>
   <h2>Here are all the members of the club:</h2>
   <br>
   <% @allusers.each do |n| %>
